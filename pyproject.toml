@@ -1,0 +1,70 @@
+[project]
+name = "banana-fonkan"
+dynamic = ["version"]
+description = "UNOFFICIAL python library for communicating with Fonkan RFID readers"
+requires-python = ">=3.13,<3.14"
+dependencies = [
+    "pyserial>=3.5",
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+
+[project.urls]
+Homepage = "https://github.com/BananaLoaf/banana-fonkan"
+Documentation = "https://github.com/BananaLoaf/banana-fonkan"
+Repository = "https://github.com/BananaLoaf/banana-fonkan.git"
+Issues = "https://github.com/BananaLoaf/banana-fonkan/issues"
+Changelog = "https://github.com/BananaLoaf/banana-fonkan/releases"
+
+[dependency-groups]
+dev = [
+    "mypy>=2.1.0",
+    "poethepoet>=0.46.0",
+    "pytest>=9.0.3",
+    "ruff>=0.15.16",
+]
+
+
+
+
+[build-system]
+requires = ["hatchling", "uv-dynamic-versioning"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+source = "uv-dynamic-versioning"
+
+[tool.hatch.build]
+include = ["banana_fonkan"]
+
+
+
+
+[tool.uv-dynamic-versioning]
+style = "semver"
+vcs = "git"
+fallback-version = "0.0.0"
+
+
+
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+
+
+
+[project.scripts]
+
+[project.gui-scripts]
+
+[tool.poe.tasks]
+lint-format = "ruff format ."
+lint-check = "ruff check --fix --extend-select I ."
+lint = ["lint-format", "lint-check"]
+test = "pytest"
+typecheck = "mypy banana_fonkan/"
