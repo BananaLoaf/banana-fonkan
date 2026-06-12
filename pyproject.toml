@@ -3,7 +3,9 @@ name = "banana-fonkan"
 dynamic = ["version"]
 description = "UNOFFICIAL python library for communicating with Fonkan RFID readers"
 requires-python = ">=3.13,<3.14"
-dependencies = []
+dependencies = [
+    "pyserial>=3.5",
+]
 classifiers = [
     "Programming Language :: Python :: 3",
     "Operating System :: OS Independent",
@@ -23,6 +25,7 @@ dev = [
     "mypy>=2.1.0",
     "poethepoet>=0.46.0",
     "pytest>=9.0.3",
+    "pytest-rerunfailures>=16.1",
     "ruff>=0.15.16",
 ]
 
@@ -62,8 +65,7 @@ testpaths = ["tests"]
 
 [tool.poe.tasks]
 lint-format = "ruff format ."
-lint-check = "ruff check --fix ."
-isort = "isort ."
-lint = ["isort", "lint-format", "lint-check"]
+lint-check = "ruff check --fix --extend-select I ."
+lint = ["lint-format", "lint-check"]
 test = "pytest"
 typecheck = "mypy banana_fonkan/"
