@@ -1,5 +1,9 @@
 # banana-fonkan
 
+[![Python CI](https://github.com/BananaLoaf/banana-fonkan/actions/workflows/python-ci.yml/badge.svg?branch=master)](https://github.com/BananaLoaf/banana-fonkan/actions/workflows/python-ci.yml?query=branch%3Amaster)
+[![PyPI](https://img.shields.io/pypi/v/banana-fonkan)](https://pypi.org/project/banana-fonkan/)
+[![License](https://img.shields.io/pypi/l/banana-fonkan)](https://github.com/BananaLoaf/banana-fonkan/blob/master/LICENSE)
+
 Unofficial Python library for communicating with Fonkan RFID readers over a serial
 connection.
 
